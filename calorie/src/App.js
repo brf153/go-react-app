@@ -6,18 +6,21 @@ import ListGroup from 'react-bootstrap/ListGroup';
 function App() {
   const data =[
     {
+      id: "1",
       dish: "Marghetti Pizza",
       ingredients: "Tomato, Cheese, Bread",
       calories: "400",
       fat: "2"
     },
     {
+      id: "2",
       dish: "Vegas Zoodles",
       ingredients: "Zirchini, Avacado, Olives",
       calories: "220",
       fat: "3"
     },
     {
+      id: "3",
       dish: "Marghetti Pizza",
       ingredients: "Almonds, Refined Sugar, Honey",
       calories: "300",
