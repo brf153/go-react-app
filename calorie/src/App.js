@@ -2,31 +2,25 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
+import axios from "axios"
+import { useEffect, useState } from 'react';
 
 function App() {
-  const data =[
-    {
-      id: "1",
-      dish: "Marghetti Pizza",
-      ingredients: "Tomato, Cheese, Bread",
-      calories: "400",
-      fat: "2"
-    },
-    {
-      id: "2",
-      dish: "Vegas Zoodles",
-      ingredients: "Zirchini, Avacado, Olives",
-      calories: "220",
-      fat: "3"
-    },
-    {
-      id: "3",
-      dish: "Marghetti Pizza",
-      ingredients: "Almonds, Refined Sugar, Honey",
-      calories: "300",
-      fat: "2"
-    },
-  ]
+
+  function handleDelete(id){
+    const response = axios.delete(`/dish/${id}`)
+  }
+
+  const [data, setData] = useState([])
+
+  useEffect(()=>{
+    const fetchData=async()=>{
+      const response = await axios.get("http://localhost:4000/")
+      console.log(response)
+      setData(response.data)
+    }
+    fetchData()
+  },[data])
   return (
     <div className="App">
       <Button variant="primary">Track Today's Calorie</Button>
@@ -40,7 +34,7 @@ function App() {
                   <p>Ingredients: {i.ingredients}</p>
                   <p>Calories: {i.calories}</p>
                   <p>Fat: {i.fat}</p>
-                  <p><Button variant="primary">Delete Entry</Button></p>
+                  <p><Button variant="primary" onClick={()=>handleDelete(i.id)}>Delete Entry</Button></p>
                   <p><Button variant="primary">Change Ingredients</Button></p>
                   <p><Button variant="primary">Change Entry</Button></p>
                 </div>

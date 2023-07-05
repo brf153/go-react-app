@@ -1,33 +1,33 @@
 package data
 
 type DataStruct struct{
-	id string 
-	dish string 
-	ingredients string 
-	calories string
-	fat string
+	  ID          string `json:"id"`
+    Dish        string `json:"dish"`
+    Ingredients string `json:"ingredients"`
+    Calories    string `json:"calories"`
+    Fat         string `json:"fat"`
 }
 
 var Data = []DataStruct{
     {
-      id: "1",
-      dish: "Marghetti Pizza",
-      ingredients: "Tomato, Cheese, Bread",
-      calories: "400",
-      fat: "2",
+      ID: "1",
+      Dish: "Marghetti Pizza",
+      Ingredients: "Tomato, Cheese, Bread",
+      Calories: "400",
+      Fat: "2",
     },
     {
-      id: "2",
-      dish: "Vegas Zoodles",
-      ingredients: "Zirchini, Avacado, Olives",
-      calories: "220",
-      fat: "3",
+      ID: "2",
+      Dish: "Vegas Zoodles",
+      Ingredients: "Zirchini, Avacado, Olives",
+      Calories: "220",
+      Fat: "3",
     },
     {
-      id: "3",
-      dish: "Marghetti Pizza",
-      ingredients: "Almonds, Refined Sugar, Honey",
-      calories: "300",
-      fat: "2",
+      ID: "3",
+      Dish: "Marghetti Pizza",
+      Ingredients: "Almonds, Refined Sugar, Honey",
+      Calories: "300",
+      Fat: "2",
     },
 }
