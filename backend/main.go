@@ -35,6 +35,8 @@ func main() {
 
 	r.HandleFunc("/dish/{id}", controllers.DeleteHandler).Methods("DELETE")
 
+	r.HandleFunc("/dish/ingredients/{id}", controllers.Ingredients)
+
 	http.Handle("/", CORSMiddleware(r))
 
 	fmt.Printf("Server started on port %s", PORT)

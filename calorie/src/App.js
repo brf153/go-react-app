@@ -42,7 +42,7 @@ function App() {
     fetchData()
   }
 
-  async function setIngredient(id){
+  const handleSubmit=async(id)=>{
     const response = await axios.post(`/dish/ingredient/${id}`)
     fetchData()
   }
@@ -74,7 +74,7 @@ function App() {
       <div ref={ingredientRef} class="card" style={{width:"18rem", position:"absolute"}}>
         <div class="card-body">
           <h5 class="card-title">Ingredients for #{id}</h5>
-          <form action={`/dish/ingredients/${id}`}>
+          <form onSubmit={()=>handleSubmit(id)}>
             <div class="mb-3">
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
               <div id="emailHelp" class="form-text">Write whatever you eat!</div>
