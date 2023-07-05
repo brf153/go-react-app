@@ -20,7 +20,8 @@ function App() {
       setData(response.data)
     }
     fetchData()
-  },[data])
+  },[])
+
   return (
     <div className="App">
       <Button variant="primary">Track Today's Calorie</Button>
