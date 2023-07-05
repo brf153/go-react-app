@@ -7,20 +7,23 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-  function handleDelete(id){
-    const response = axios.delete(`/dish/${id}`)
-  }
-
   const [data, setData] = useState([])
 
   useEffect(()=>{
-    const fetchData=async()=>{
-      const response = await axios.get("http://localhost:4000/")
-      console.log(response)
-      setData(response.data)
-    }
     fetchData()
   },[])
+
+  const fetchData=async()=>{
+    const response = await axios.get("http://localhost:4000/")
+    // console.log(response)
+    setData(response.data)
+  }
+
+  async function handleDelete(id){
+    const response = await axios.delete(`http://localhost:4000/dish/${id}`)
+    // console.log(response)
+    fetchData()
+  }
 
   return (
     <div className="App">
